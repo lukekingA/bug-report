@@ -99,6 +99,16 @@ export default new Vuex.Store({
       _api.put('/bugs/' + data.bugId, data.description).then(res => {
         dispatch('getOneBug', data.bugId)
       })
+    },
+    editComment({
+      commit,
+      dispatch
+    }, data) {
+      _api.put('/bugs/' + data.bugId + '/notes/' + data.noteId, data.mark).then(res => {
+        console.log(res)
+        debugger
+        dispatch('getComments', data.bugId)
+      })
     }
   }
 })

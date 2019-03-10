@@ -11,7 +11,13 @@
           <div class="bg-light rounded p-1">
             <p class="mb-1">{{note.content}}</p>
             <p class="text-right my-0"><small>{{note.flagged}}</small></p>
-            <div class="text-right">
+            <div class="d-flex justify-content-between">
+              <div>
+                <button @click="markComment(bug._id, note._id,'completed')" class="btn btn-sm mr-2 text-success font-weight-bold"><i
+                    class="fas fa-check"></i></button>
+                <button @click="markComment(bug._id, note._id,'rejected')" class="btn btn-sm text-danger font-weight-bold"><i
+                    class="fas fa-times"></i></button>
+              </div>
               <button @click="deleteComment(bug._id, note._id)" class="btn btn-sm"><i class="fas fa-trash-alt"></i></button>
             </div>
           </div>
@@ -52,6 +58,16 @@
           noteId: noteId
         }
         this.$store.dispatch('deleteComment', data)
+      },
+      markComment(bugId, noteId, mark) {
+        let data = {
+          bugId: bugId,
+          noteId: noteId,
+          mark: {
+            flagged: mark
+          }
+        }
+        this.$store.dispatch('editComment', data)
       }
     },
     components: {}
