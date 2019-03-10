@@ -16,6 +16,7 @@
     color: #2c3e50;
     height: 100vh;
     background-color: rgb(223, 223, 223);
+    background-attachment: fixed;
   }
 
   #nav {
