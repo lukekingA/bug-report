@@ -2,7 +2,7 @@
   <div class="notes">
     <div class="row">
       <div class="col col-sm-6 offset-sm-3 mt-3">
-        <h5 class="">Notes</h5>
+        <h5 class="">Comments</h5>
         <div class="border-dark border-bottom mt-2" v-for="note in notes">
           <div class="d-flex justify-content-between bgshadow rounded p-2 mb-1">
             <span class="font-weight-bold">{{note.creator}}</span>
