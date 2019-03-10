@@ -34,6 +34,7 @@
           }
         }
         this.$store.dispatch('editBug', data)
+        this.bugDescription = ''
       }
     },
     components: {}
