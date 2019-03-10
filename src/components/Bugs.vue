@@ -1,14 +1,15 @@
 <template>
   <div class="bugs">
 
-    <table>
+    <table class="w-100 shadow">
       <thead>
-        <tr class="border-bottom">
+        <tr class="border-bottom shadow-sm">
           <th class="w-25">Title</th>
           <th class="w-25">Reported by</th>
           <th class="w-25">Status <i @click="open = !open" class="fas fa-sort-down"></i></th>
           <th class="w-25">Date <i @click="open = !open" class="fas fa-sort-down"></i></th>
         </tr>
+        <tr class="ht10"></tr>
       </thead>
       <tbody>
         <tr :class="[bug.closed ? red : '', green]" class="border-bottom rounded" v-for="bug in bugs">
@@ -95,5 +96,9 @@
 
   .red {
     background-image: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.8));
+  }
+
+  .ht10 {
+    height: 10px;
   }
 </style>
