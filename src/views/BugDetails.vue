@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <note-form v-if="commentForm" :bug="bug"></note-form>
+    <note-form v-show="commentForm" :bug="bug" v-on:colapseCommentForm="commentForm = false"></note-form>
     <bug-edit-form v-show="bugEdit" :bug="bug" v-on:colapseForm="bugEdit = false"></bug-edit-form>
     <notes :bug="bug"></notes>
   </div>
