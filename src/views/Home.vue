@@ -1,21 +1,23 @@
 <template>
   <div class="home container-fluid">
-    <div class="row">
-      <div class="col mb-4">
+    <div class="row bg-dark text-light">
+      <div class="col my-4">
         <h1>Bug Report</h1>
       </div>
     </div>
     <div class="row">
-      <div class="col col-sm-10 offset-sm-1">
-        <bugs></bugs>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
+      <div class="col col-sm-10 offset-sm-1"">
         <bug-form></bug-form>
       </div>
     </div>
-  </div>
+    <div class="
+        row">
+        <div class="col col-sm-10 offset-sm-1">
+          <bugs></bugs>
+        </div>
+      </div>
+
+    </div>
 </template>
 
 <script>
@@ -39,3 +41,8 @@
     }
   }
 </script>
+<style scoped>
+  h1 {
+    font-weight: bold;
+  }
+</style>

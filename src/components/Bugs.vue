@@ -1,7 +1,7 @@
 <template>
   <div class="bugs">
 
-    <table class="w-100 shadow">
+    <table class="w-100 shadow bg-light rounded">
       <thead>
         <tr class="border-bottom shadow-sm">
           <th class="w-25">Title</th>
@@ -13,8 +13,8 @@
       </thead>
       <tbody>
         <tr :class="[bug.closed ? red : '', green]" class="border-bottom rounded" v-for="bug in bugs">
-          <td @click="viewBug(bug._id)" class="text-primary hover">{{bug.title}}</td>
-          <td>{{bug.user}}</td>
+          <td @click="viewBug(bug._id)" class="text-primary hover txt-bold txt-shadow">{{bug.title}}</td>
+          <td>{{bug.creator}}</td>
           <td>{{bug.closed? 'closed': 'open'}}</td>
           <td class="pr-2">{{bug.createdAt | prettyDate}}</td>
         </tr>
@@ -65,6 +65,10 @@
 
 
 <style scoped>
+  tr {
+    height: 2.5rem;
+  }
+
   i:active {
     transform: rotateX(180deg);
     animation: one 1s once;
@@ -86,16 +90,24 @@
     }
   }
 
+  .txt-bold {
+    font-weight: bold;
+  }
+
+  .txt-shadow {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.333);
+  }
+
   .hover {
     cursor: pointer;
   }
 
   .green {
-    background-image: linear-gradient(to bottom, transparent, rgba(0, 128, 0, 0.8));
+    background-image: linear-gradient(to bottom, transparent, rgba(0, 128, 0, 0.75));
   }
 
   .red {
-    background-image: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.8));
+    background-image: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.75));
   }
 
   .ht10 {

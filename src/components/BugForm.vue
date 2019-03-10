@@ -1,11 +1,11 @@
 <template>
   <div class="bugform">
-    <button @click="showForm" class="btn btn-danger btn-sm my-3">New Bug</button>
-    <form class="input-group d-flex justify-content-center" v-if="form" @submit.prevent="formSubmit">
-      <input class="pl-1 rounded-left" type="text" v-model="bugReport.title" placeholder="title">
+    <button @click="showForm" class="btn btn-danger btn-sm my-4">New Bug</button>
+    <form class="input-group d-flex justify-content-center mb-4" v-if="form" @submit.prevent="formSubmit">
+      <input class="pl-1 rounded" type="text" v-model="bugReport.title" placeholder="title">
       <input class="pl-1 rounded" type="text" v-model="bugReport.creator" placeholder="your name">
       <input class="pl-1 rounded" type="text" v-model="bugReport.description" placeholder="description">
-      <div class="input-group-append"><button class="btn btn-dark text-light btn-sm" type="submit">Report</button></div>
+      <button class="btn btn-dark text-light btn-sm mt-1" type="submit">Report</button>
     </form>
 
   </div>

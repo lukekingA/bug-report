@@ -13,7 +13,7 @@ export default new Vuex.Store({
   state: {
     bugs: [],
     curBug: {},
-    curNotes: []
+    curComments: []
   },
   mutations: {
     getBugs(state, data) {
@@ -22,8 +22,8 @@ export default new Vuex.Store({
     getOneBug(state, data) {
       state.curBug = data
     },
-    getNotes(state, data) {
-      state.curNotes = data
+    getComments(state, data) {
+      state.curComments = data
     }
 
   },
@@ -36,14 +36,12 @@ export default new Vuex.Store({
         commit('getBugs', res.data.results)
       })
     },
-    getNotes({
+    getComments({
       commit,
       dispatch
     }, id) {
       _api.get('/bugs/' + id + '/notes').then(res => {
-        debugger
-        console.log(res)
-        commit('getNotes', res.data.results)
+        commit('getComments', res.data.results)
       })
     },
     getOneBug({
@@ -53,7 +51,10 @@ export default new Vuex.Store({
       _api.get('/bugs/' + id).then(res => {
         commit('getOneBug', res.data.results)
         router.push({
-          name: 'bugDetails'
+          name: 'bugDetails',
+          params: {
+            bugId: id
+          }
         })
       })
     },
@@ -79,10 +80,24 @@ export default new Vuex.Store({
       commit,
       dispatch
     }, data) {
-      debugger
       _api.post('/bugs/' + data.bug._id + '/notes', data).then(res => {
-        console.log(res)
-
+        dispatch('getComments', data.bug._id)
+      })
+    },
+    deleteComment({
+      commit,
+      dispatch
+    }, data) {
+      _api.delete('/bugs/' + data.bugId + '/notes/' + data.noteId).then(res => {
+        dispatch('getComments', data.bugId)
+      })
+    },
+    editBug({
+      commit,
+      dispatch
+    }, data) {
+      _api.put('/bugs/' + data.bugId, data.description).then(res => {
+        dispatch('getOneBug', data.bugId)
       })
     }
   }
