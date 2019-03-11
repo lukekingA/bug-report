@@ -6,7 +6,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col col-sm-8 offset-sm-2 mt-5">
+      <div class="col col-sm-8 offset-sm-2 mt-3">
+        <router-link class="btn btn-sm bg-danger text-light" to="/">Back</router-link>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-sm-8 offset-sm-2 mt-3">
         <div v-bind:class="[closed ? red : '', green]" class="card border border-dark shadow-sm">
           <div class="card-body">
             <div class="d-flex justify-content-between mb-3 border-bottom border-dark">

@@ -18,7 +18,7 @@
                 <button @click="markComment(bug._id, note._id,'rejected')" class="btn btn-sm text-danger font-weight-bold"><i
                     class="fas fa-times"></i></button>
               </div>
-              <button @click="deleteComment(bug._id, note._id)" class="btn btn-sm"><i class="fas fa-trash-alt"></i></button>
+              <button v-if="!bug.closed" @click="deleteComment(bug._id, note._id)" class="btn btn-sm"><i class="fas fa-trash-alt"></i></button>
             </div>
           </div>
         </div>
